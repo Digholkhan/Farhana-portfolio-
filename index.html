@@ -125,6 +125,110 @@
       0%   { transform: translate(-50%, -50%) scale(0.96); opacity: 0.65; }
       100% { transform: translate(-50%, -50%) scale(1.10); opacity: 1; }
     }
+
+    /* ================================================================
+       CRITICAL TEXT COLOR FIX
+       Tailwind CDN does not generate text-white/XX opacity utilities
+       by default. We override ALL text to be white-based here.
+       ================================================================ */
+
+    /* Base: every element inherits white text from body */
+    body, main, section, div, p, h1, h2, h3, h4, h5, h6,
+    span, a, li, blockquote, label, input, textarea, button,
+    footer, header, nav {
+      color: inherit;
+    }
+    body { color: #ffffff; }
+
+    /* Tailwind opacity text utilities — manual definitions */
+    .text-white    { color: #ffffff !important; }
+    .text-white\/90 { color: rgba(255,255,255,0.90) !important; }
+    .text-white\/80 { color: rgba(255,255,255,0.80) !important; }
+    .text-white\/75 { color: rgba(255,255,255,0.75) !important; }
+    .text-white\/70 { color: rgba(255,255,255,0.70) !important; }
+    .text-white\/65 { color: rgba(255,255,255,0.65) !important; }
+    .text-white\/60 { color: rgba(255,255,255,0.60) !important; }
+    .text-white\/55 { color: rgba(255,255,255,0.55) !important; }
+    .text-white\/50 { color: rgba(255,255,255,0.50) !important; }
+    .text-white\/40 { color: rgba(255,255,255,0.40) !important; }
+    .text-white\/30 { color: rgba(255,255,255,0.30) !important; }
+
+    /* Purple/violet text utilities */
+    .text-purple-100  { color: #ede9fe !important; }
+    .text-purple-200  { color: #ddd6fe !important; }
+    .text-purple-300  { color: #c4b5fd !important; }
+    .text-purple-400  { color: #a78bfa !important; }
+    .text-purple-500  { color: #8b5cf6 !important; }
+    .text-purple-accent { color: #c4b5fd !important; }
+
+    /* Opacity shorthand variants on purple */
+    .text-purple-200\/80 { color: rgba(221,214,254,0.80) !important; }
+    .text-purple-200\/90 { color: rgba(221,214,254,0.90) !important; }
+
+    /* Custom semantic text tokens */
+    .text-muted  { color: rgba(255,255,255,0.40) !important; }
+    .text-body   { color: rgba(255,255,255,0.85) !important; }
+
+    /* Specific element overrides for elements that default to dark */
+    p, li, blockquote, label, span:not([class*="bg-"]) {
+      color: inherit;
+    }
+
+    /* Testimonial body text — must be light */
+    .liquid-glass p { color: rgba(255,255,255,0.88); }
+
+    /* Service descriptions */
+    .service-item p { color: rgba(255,255,255,0.65); }
+    .service-item h3 { color: #ffffff; }
+    .service-num { color: rgba(255,255,255,0.40); }
+
+    /* Portfolio card text */
+    .portfolio-card p { color: rgba(255,255,255,0.65); }
+    .portfolio-card h3 { color: #ffffff; }
+
+    /* Timeline / process text */
+    .timeline-step p { color: rgba(255,255,255,0.60); }
+    .timeline-step h3 { color: #ffffff; }
+
+    /* Contact form placeholder color */
+    input::placeholder, textarea::placeholder {
+      color: rgba(255,255,255,0.25) !important;
+    }
+    input, textarea {
+      color: #ffffff !important;
+    }
+
+    /* Navigation links */
+    .nav-link { color: rgba(255,255,255,0.70); }
+    .nav-link.active { color: #c4b5fd !important; }
+    .nav-link:hover { color: #c4b5fd; }
+
+    /* Footer text */
+    footer p, footer span, footer li, footer a {
+      color: rgba(255,255,255,0.55);
+    }
+
+    /* Metric cards */
+    .metric-card span { color: rgba(255,255,255,0.40); }
+
+    /* Section label mono text */
+    [class*="font-mono"][class*="text-purple"] { color: #a78bfa; }
+
+    /* Ensure service tags are visible */
+    .service-tag { color: rgba(255,255,255,0.70) !important; }
+
+    /* Hover text colour on group elements */
+    .group:hover .group-hover\:text-purple-300 { color: #c4b5fd !important; }
+    .group:hover .group-hover\:text-purple-100 { color: #ede9fe !important; }
+    .group:hover .group-hover\:text-white { color: #ffffff !important; }
+
+    /* White/black CTA buttons — keep dark text on white bg */
+    a[class*="bg-white"], button[class*="bg-white"] {
+      color: #08040D !important;
+    }
+    a[class*="bg-white"]:hover, button[class*="bg-white"]:hover {
+      color: #08040D !important;
+    }
   </style>
 </head>
 <body class="bg-[#050307] text-white overflow-x-hidden selection:bg-[#7C3AED] selection:text-white">
