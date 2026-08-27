@@ -658,3 +658,40 @@ footer:hover .footer-huge-name {
     height: 450px;
   }
 }
+
+/* Vortx motion treatment on the original light portfolio layout. */
+html { color-scheme: light; background: #FDFBFF; }
+body { background: #FDFBFF !important; color: #1E1333 !important; }
+.ambient-motion-container { background: transparent !important; }
+.ambient-video { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; object-fit: cover; object-position: 70% center; opacity: 1; filter: none; }
+.ambient-motion-orb { z-index: 1; }
+.hero-video-overlay { background: transparent !important; }
+.ambient-canvas-element, .ambient-motion-orb, .radial-purple-ambient, .radial-purple-ambient-bottom, .hero-radial-halo { display: none !important; }
+.text-white { color: #1E1333 !important; }
+.text-white\/90, .text-white\/80, .text-white\/75 { color: #4B3B7A !important; }
+.text-white\/70, .text-white\/65, .text-white\/60, .text-white\/55 { color: #7B6BA0 !important; }
+.text-white\/50, .text-white\/40, .text-white\/30 { color: #A89EC9 !important; }
+.liquid-glass, .glass-pill, .glass-circle { background: rgba(255,255,255,.74) !important; border-color: rgba(167,139,250,.28) !important; box-shadow: 0 8px 28px rgba(124,58,237,.08) !important; }
+.service-item, .portfolio-card, .metric-card, .testimonial-card { color: #1E1333; }
+.service-item h3, .portfolio-card h3, .timeline-step h3 { color: #1E1333 !important; }
+.service-item p, .portfolio-card p, .timeline-step p { color: #7B6BA0 !important; }
+footer { background: linear-gradient(180deg, #F5F0FF 0%, #EDE8FF 100%) !important; }
+a[class*="bg-white"], button[class*="bg-white"] { color: #1E1333 !important; }
+
+/* Deeper contrast keeps the moving background atmospheric without washing out content. */
+:root { --text-deep: #2B2140; --text-body: #5C5075; --text-soft: #786D8D; --text-faint: #988DA8; }
+body { background: #F3EFFA !important; color: var(--text-deep) !important; }
+.text-white { color: var(--text-deep) !important; }
+.text-white\/90, .text-white\/80, .text-white\/75 { color: var(--text-body) !important; }
+.text-white\/70, .text-white\/65, .text-white\/60, .text-white\/55 { color: var(--text-soft) !important; }
+.text-white\/50, .text-white\/40, .text-white\/30 { color: var(--text-faint) !important; }
+.liquid-glass, .glass-pill, .glass-circle { background: rgba(255,255,255,.84) !important; border-color: rgba(124,58,237,.18) !important; }
+.liquid-glass-input { background: rgba(255,255,255,.76) !important; color: var(--text-deep) !important; border-color: rgba(124,58,237,.18) !important; box-shadow: inset 0 1px 2px rgba(43,33,64,.08) !important; }
+input::placeholder, textarea::placeholder { color: var(--text-faint) !important; }
+#hero h1 { color: #FFFFFF !important; text-shadow: 0 2px 18px rgba(25,12,48,.42); }
+#hero p { color: rgba(255,255,255,.86) !important; }
+.metric-card span { color: var(--text-soft) !important; }
+.metric-card span:first-child { color: var(--purple-primary) !important; }
+footer p, footer span, footer li, footer a { color: var(--text-body) !important; }
+.service-num { color: var(--text-faint) !important; }
+.service-tag { color: var(--text-body) !important; background: rgba(124,58,237,.07) !important; border-color: rgba(124,58,237,.16) !important; }
