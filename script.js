@@ -97,7 +97,14 @@ const caseStudies = {
   }
 };
 
-document.addEventListener('DOMContentLoaded', () => {
+// Initialize on DOMContentLoaded or immediately if already loaded
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initAll);
+} else {
+  initAll();
+}
+
+function initAll() {
   initAmbientCanvas();
   initCursorGlow();
   initNavigationScrollSpy();
@@ -105,38 +112,55 @@ document.addEventListener('DOMContentLoaded', () => {
   initTimelineProgress();
   initSoundToggle();
   initBackToTop();
-});
+}
 
 /* ==========================================================================
-   AMBIENT VIOLET CANVAS ANIMATION
+   AMBIENT VIOLET CANVAS ANIMATION (HIGH-DPI & RESILIENT)
    ========================================================================== */
 function initAmbientCanvas() {
   const canvas = document.getElementById('ambient-canvas');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
+  if (!ctx) return;
 
-  let width = (canvas.width = window.innerWidth);
-  let height = (canvas.height = window.innerHeight);
+  let dpr = window.devicePixelRatio || 1;
+  let width, height;
 
-  window.addEventListener('resize', () => {
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
-  });
+  function resize() {
+    dpr = window.devicePixelRatio || 1;
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+    canvas.style.width = width + 'px';
+    canvas.style.height = height + 'px';
+    ctx.scale(dpr, dpr);
+  }
+
+  resize();
+  window.addEventListener('resize', resize);
 
   const particles = [];
-  const particleCount = Math.min(35, Math.floor((width * height) / 35000));
+  const particleCount = Math.min(45, Math.floor((width * height) / 28000));
 
   for (let i = 0; i < particleCount; i++) {
     particles.push({
       x: Math.random() * width,
       y: Math.random() * height,
-      radius: Math.random() * 2 + 1,
-      vx: (Math.random() - 0.5) * 0.3,
-      vy: (Math.random() - 0.5) * 0.3,
-      alpha: Math.random() * 0.4 + 0.1,
-      color: Math.random() > 0.5 ? '124, 58, 237' : '167, 139, 250'
+      radius: Math.random() * 2.2 + 1.2,
+      vx: (Math.random() - 0.5) * 0.45,
+      vy: (Math.random() - 0.5) * 0.45,
+      alpha: Math.random() * 0.5 + 0.25,
+      color: Math.random() > 0.4 ? '167, 139, 250' : '196, 181, 253'
     });
   }
+
+  let mouseX = -1000;
+  let mouseY = -1000;
+  window.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
 
   function render() {
     ctx.clearRect(0, 0, width, height);
@@ -148,10 +172,10 @@ function initAmbientCanvas() {
         const dy = particles[i].y - particles[j].y;
         const dist = Math.sqrt(dx * dx + dy * dy);
 
-        if (dist < 140) {
+        if (dist < 150) {
           ctx.beginPath();
-          ctx.strokeStyle = `rgba(139, 92, 246, ${0.12 * (1 - dist / 140)})`;
-          ctx.lineWidth = 0.75;
+          ctx.strokeStyle = `rgba(167, 139, 250, ${0.18 * (1 - dist / 150)})`;
+          ctx.lineWidth = 0.8;
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
           ctx.stroke();
@@ -159,21 +183,31 @@ function initAmbientCanvas() {
       }
     }
 
-    // Draw subtle particles
+    // Update & Draw particles
     particles.forEach((p) => {
       p.x += p.vx;
       p.y += p.vy;
 
+      // Wrap edges
       if (p.x < 0) p.x = width;
       if (p.x > width) p.x = 0;
       if (p.y < 0) p.y = height;
       if (p.y > height) p.y = 0;
 
+      // Mouse subtle attraction
+      const mdx = mouseX - p.x;
+      const mdy = mouseY - p.y;
+      const mdist = Math.sqrt(mdx * mdx + mdy * mdy);
+      if (mdist < 120 && mdist > 0) {
+        p.x += (mdx / mdist) * 0.4;
+        p.y += (mdy / mdist) * 0.4;
+      }
+
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
       ctx.fillStyle = `rgba(${p.color}, ${p.alpha})`;
-      ctx.shadowBlur = 8;
-      ctx.shadowColor = 'rgba(124, 58, 237, 0.5)';
+      ctx.shadowBlur = 10;
+      ctx.shadowColor = 'rgba(139, 92, 246, 0.7)';
       ctx.fill();
     });
 
@@ -182,6 +216,9 @@ function initAmbientCanvas() {
 
   render();
 }
+
+
+
 
 /* ==========================================================================
    CURSOR GLOW FOLLOWER

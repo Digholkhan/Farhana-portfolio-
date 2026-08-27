@@ -51,9 +51,14 @@
 </head>
 <body class="bg-[#050307] text-white overflow-x-hidden selection:bg-[#7C3AED] selection:text-white">
 
-  <!-- Ambient Glow Canvas & Video Treatment -->
+  <!-- Ambient Motion Background: Fluid Animated Purple Mesh + Constellation Canvas + Cinematic Overlays -->
   <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
-    <canvas id="ambient-canvas" class="w-full h-full opacity-60"></canvas>
+    <div class="ambient-motion-container">
+      <div class="ambient-motion-orb orb-1"></div>
+      <div class="ambient-motion-orb orb-2"></div>
+      <div class="ambient-motion-orb orb-3"></div>
+    </div>
+    <canvas id="ambient-canvas" class="ambient-canvas-element"></canvas>
     <div class="hero-video-overlay"></div>
     <div class="radial-purple-ambient"></div>
     <div class="radial-purple-ambient-bottom"></div>
