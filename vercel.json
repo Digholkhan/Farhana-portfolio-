@@ -1,14 +1,31 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "version": 2,
-  "cleanUrls": true,
+  "buildCommand": null,
+  "outputDirectory": ".",
+  "installCommand": null,
+  "framework": null,
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" }
+  ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
-        }
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" }
+      ]
+    },
+    {
+      "source": "/style.css",
+      "headers": [
+        { "key": "Content-Type", "value": "text/css; charset=utf-8" }
+      ]
+    },
+    {
+      "source": "/script.js",
+      "headers": [
+        { "key": "Content-Type", "value": "application/javascript; charset=utf-8" }
       ]
     }
   ]

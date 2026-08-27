@@ -2,19 +2,12 @@
   "name": "farhana-asha-portfolio",
   "version": "1.0.0",
   "description": "Farhana Asha — Luxury Editorial & Purple Cinematic Portfolio",
-  "main": "server.js",
   "scripts": {
     "dev": "node server.js",
     "start": "node server.js",
-    "build": "echo 'Static build ready'"
+    "build": "echo Static build ready"
   },
-  "keywords": [
-    "portfolio",
-    "content-strategy",
-    "brand-storytelling",
-    "purple-theme",
-    "editorial"
-  ],
+  "keywords": ["portfolio", "content-strategy", "brand-storytelling"],
   "author": "Farhana Asha",
   "license": "MIT"
 }

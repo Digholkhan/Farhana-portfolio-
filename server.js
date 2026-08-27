@@ -40,6 +40,22 @@ const server = http.createServer((req, res) => {
   });
 });
 
-server.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}/`);
-});
+let PORT = 4173;
+
+function startServer(port) {
+  server.listen(port, () => {
+    console.log(`\n✅ Server running at http://localhost:${port}/\n`);
+  });
+
+  server.on('error', (err) => {
+    if (err.code === 'EADDRINUSE') {
+      console.log(`⚠️  Port ${port} in use, trying ${port + 1}...`);
+      server.removeAllListeners('error');
+      startServer(port + 1);
+    } else {
+      console.error('Server error:', err);
+    }
+  });
+}
+
+startServer(PORT);
