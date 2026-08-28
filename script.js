@@ -107,6 +107,7 @@ if (document.readyState === 'loading') {
 function initAll() {
   initAmbientCanvas();
   initCursorGlow();
+  initCursorParticles();
   initNavigationScrollSpy();
   initPortfolioFilters();
   initTimelineProgress();
@@ -245,6 +246,55 @@ function initCursorGlow() {
   }
 
   update();
+}
+
+/* ===========================================================================
+   MAGICAL CURSOR TRAIL & CLICK BURSTS
+   =========================================================================== */
+function initCursorParticles() {
+  const particleLayer = document.getElementById('cursor-particles');
+  if (!particleLayer || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const symbols = ['✦', '✧', '❀', '✿', '🦋'];
+  const trailSymbols = ['✦', '✧', '❀', '🦋'];
+  let lastTrailAt = 0;
+
+  function createParticle(x, y, isBurst = false) {
+    const particle = document.createElement('span');
+    const symbolPool = isBurst ? symbols : trailSymbols;
+    const symbol = symbolPool[Math.floor(Math.random() * symbolPool.length)];
+    const angle = Math.random() * Math.PI * 2;
+    const distance = isBurst ? 42 + Math.random() * 78 : 14 + Math.random() * 30;
+    const size = isBurst ? 0.75 + Math.random() * 0.8 : 0.55 + Math.random() * 0.55;
+
+    particle.className = `cursor-particle ${symbol.startsWith('✦') || symbol.startsWith('✧') ? 'cursor-particle-star' : ''} ${Math.random() > 0.55 ? 'cursor-particle-flower' : ''}`;
+    particle.textContent = symbol;
+    particle.style.left = `${x}px`;
+    particle.style.top = `${y}px`;
+    particle.style.setProperty('--particle-x', `${Math.cos(angle) * distance}px`);
+    particle.style.setProperty('--particle-y', `${Math.sin(angle) * distance - (isBurst ? 12 : 4)}px`);
+    particle.style.setProperty('--particle-size', `${size}rem`);
+    particle.style.setProperty('--particle-rotate', `${-35 + Math.random() * 70}deg`);
+    if (particleLayer.childElementCount >= 90) {
+      particleLayer.firstElementChild.remove();
+    }
+    particleLayer.appendChild(particle);
+    particle.addEventListener('animationend', () => particle.remove(), { once: true });
+    window.setTimeout(() => particle.remove(), 1400);
+  }
+
+  window.addEventListener('pointermove', (event) => {
+    const now = performance.now();
+    if (now - lastTrailAt < 38) return;
+    lastTrailAt = now;
+    createParticle(event.clientX, event.clientY);
+  }, { passive: true });
+
+  window.addEventListener('pointerdown', (event) => {
+    for (let index = 0; index < 12; index += 1) {
+      createParticle(event.clientX, event.clientY, true);
+    }
+  }, { passive: true });
 }
 
 /* ==========================================================================

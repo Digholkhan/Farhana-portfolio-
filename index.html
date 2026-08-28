@@ -249,6 +249,7 @@
 
   <!-- Custom Cursor / Ambient Pointer Glow -->
   <div id="cursor-glow" class="cursor-glow pointer-events-none hidden md:block" aria-hidden="true"></div>
+  <div id="cursor-particles" class="cursor-particles" aria-hidden="true"></div>
 
   <!-- Sound Toggle & Status Bar -->
   <div class="fixed bottom-6 left-6 z-50 flex items-center gap-3">
@@ -264,7 +265,7 @@
 
   <!-- Back to Top Button -->
   <button id="back-to-top" class="fixed bottom-6 right-6 z-50 glass-circle w-11 h-11 flex items-center justify-center opacity-0 translate-y-4 pointer-events-none transition-all duration-300 hover:border-purple-400/60 hover:shadow-purple-glow-sm" aria-label="Back to top">
-    <svg class="w-4 h-4 text-purple-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg class="w-4 h-4 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
     </svg>
   </button>
@@ -276,7 +277,7 @@
       <!-- Monogram / Brand Logo -->
       <a href="#hero" class="group flex items-center gap-3 text-white no-underline">
         <div class="relative w-9 h-9 rounded-full flex items-center justify-center liquid-glass border border-white/15 group-hover:border-purple-400/50 transition-all duration-300 shadow-purple-sm">
-          <span class="font-serif italic font-bold text-lg text-purple-200 group-hover:text-white transition-colors">FA</span>
+          <span class="font-serif italic font-bold text-lg text-purple-400 group-hover:text-white transition-colors">FA</span>
           <div class="absolute -inset-0.5 rounded-full bg-purple-500/15 blur-sm opacity-0 group-hover:opacity-100 transition-opacity"></div>
         </div>
         <div class="flex flex-col">
@@ -359,7 +360,7 @@
       <div class="hero-radial-halo" aria-hidden="true"></div>
 
       <!-- Live Status Badge -->
-      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full liquid-glass border border-purple-500/30 text-xs font-mono text-purple-200/90 mb-8 animate-fade-in shadow-purple-sm">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full liquid-glass border border-purple-500/30 text-xs font-mono text-purple-400/90 mb-8 animate-fade-in shadow-purple-sm">
         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
         <span>Available for Select Client Engagements Q3/Q4</span>
       </div>
@@ -1125,7 +1126,7 @@
   </main>
 
   <!-- ==================== FOOTER ==================== -->
-  <footer class="relative bg-[#050307] pt-24 pb-12 px-6 sm:px-8 border-t border-white/5 overflow-hidden">
+  <footer class="relative bg-[#050307]! pt-24 pb-12 px-6 sm:px-8 border-t border-white/5 overflow-hidden">
     
     <!-- Huge Ambient Background Typography -->
     <div class="footer-huge-name select-none" aria-hidden="true">

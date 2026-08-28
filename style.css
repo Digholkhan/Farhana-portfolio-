@@ -291,6 +291,63 @@ body {
   transition: transform 0.08s ease-out, opacity 0.3s ease;
 }
 
+.cursor-particles {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.cursor-particle {
+  position: absolute;
+  display: block;
+  color: #e9ddff;
+  font-family: Georgia, serif;
+  font-size: var(--particle-size, 0.75rem);
+  line-height: 1;
+  text-shadow: 0 0 8px rgba(196, 181, 253, 0.95), 0 0 18px rgba(139, 92, 246, 0.75);
+  transform: translate(-50%, -50%);
+  animation: cursorParticleFloat 900ms cubic-bezier(0.2, 0.75, 0.35, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.cursor-particle-flower {
+  color: #f7d5ec;
+  text-shadow: 0 0 8px rgba(247, 213, 236, 0.95), 0 0 16px rgba(236, 72, 153, 0.5);
+}
+
+.cursor-particle-star {
+  color: #ffd76a;
+  text-shadow: 0 0 6px #fff3a3, 0 0 14px rgba(255, 193, 7, 0.95), 0 0 26px rgba(255, 152, 0, 0.7);
+  animation: cursorParticleFloat 900ms cubic-bezier(0.2, 0.75, 0.35, 1) forwards, starShimmer 420ms ease-in-out infinite alternate;
+}
+
+@keyframes starShimmer {
+  from { filter: brightness(1); }
+  to { filter: brightness(1.7); }
+}
+
+@keyframes cursorParticleFloat {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.35) rotate(0deg);
+  }
+  18% { opacity: 1; }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--particle-x)), calc(-50% + var(--particle-y))) scale(1) rotate(var(--particle-rotate));
+  }
+}
+
+@media (max-width: 767px) {
+  .cursor-particles { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor-particles { display: none; }
+}
+
 /* ==========================================================================
    PURPLE LIQUID GLASS SYSTEM
    ========================================================================== */
