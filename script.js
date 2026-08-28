@@ -275,12 +275,13 @@ function initCursorParticles() {
     particle.style.setProperty('--particle-y', `${Math.sin(angle) * distance - (isBurst ? 12 : 4)}px`);
     particle.style.setProperty('--particle-size', `${size}rem`);
     particle.style.setProperty('--particle-rotate', `${-35 + Math.random() * 70}deg`);
+    particle.style.setProperty('--particle-duration', isBurst ? '1800ms' : '1300ms');
     if (particleLayer.childElementCount >= 90) {
       particleLayer.firstElementChild.remove();
     }
     particleLayer.appendChild(particle);
     particle.addEventListener('animationend', () => particle.remove(), { once: true });
-    window.setTimeout(() => particle.remove(), 1400);
+    window.setTimeout(() => particle.remove(), 2200);
   }
 
   window.addEventListener('pointermove', (event) => {
