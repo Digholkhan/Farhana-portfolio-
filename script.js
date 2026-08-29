@@ -113,6 +113,54 @@ function initAll() {
   initTimelineProgress();
   initSoundToggle();
   initBackToTop();
+  initTypingEffect();
+}
+
+function initTypingEffect() {
+  const typingElement = document.getElementById('typing-text');
+  if (!typingElement) return;
+
+  const words = [
+    'Content Writer',
+    'Content Planner',
+    'Brand Maker',
+    'Digital Marketer'
+  ];
+
+  let wordIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+
+  const type = () => {
+    const currentWord = words[wordIndex];
+    const visibleText = currentWord.slice(0, charIndex);
+
+    typingElement.textContent = visibleText;
+
+    if (!isDeleting && charIndex < currentWord.length) {
+      charIndex += 1;
+      setTimeout(type, 120);
+      return;
+    }
+
+    if (!isDeleting && charIndex === currentWord.length) {
+      isDeleting = true;
+      setTimeout(type, 1200);
+      return;
+    }
+
+    if (isDeleting && charIndex > 0) {
+      charIndex -= 1;
+      setTimeout(type, 80);
+      return;
+    }
+
+    isDeleting = false;
+    wordIndex = (wordIndex + 1) % words.length;
+    setTimeout(type, 220);
+  };
+
+  type();
 }
 
 /* ==========================================================================
