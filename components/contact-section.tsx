@@ -36,14 +36,14 @@ export default function ContactSection() {
 
       <div className="max-w-4xl mx-auto relative z-10">
         <div className="text-center mb-16">
-          <span className="font-mono text-xs uppercase tracking-widest text-purple-600 block mb-3">
+          <span className="font-mono text-xs uppercase tracking-widest text-purple-400 block mb-3">
             {"// 06 — Let's Collaborate"}
           </span>
-          <h2 className="text-3xl sm:text-5xl md:text-6xl font-sans font-light tracking-tight text-[#2B2140]">
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-sans font-light tracking-tight text-[#fff]">
             Have an idea? <br />
             <span className="font-serif italic text-purple-accent">Let&apos;s make it matter.</span>
           </h2>
-          <p className="mt-4 text-base text-[#5C5075] max-w-xl mx-auto font-light leading-relaxed">
+          <p className="mt-4 text-base !text-[#fff] max-w-xl mx-auto font-light leading-relaxed">
             Whether you are embarking on a high-conviction rebrand, preparing a flagship launch, or seeking an ongoing narrative advisor, let’s begin the conversation.
           </p>
         </div>

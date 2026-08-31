@@ -79,9 +79,9 @@ body {
   position: relative;
   background: linear-gradient(
     180deg,
-    rgba(5, 3, 7, 0.02) 0%,
-    rgba(5, 3, 7, 0.05) 14%,
-    rgba(5, 3, 7, 0.08) 100%
+    rgba(5, 3, 7, 0.42) 0%,
+    rgba(5, 3, 7, 0.58) 18%,
+    rgba(5, 3, 7, 0.72) 100%
   );
 }
 
@@ -89,7 +89,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at top, rgba(124, 58, 237, 0.08), transparent 55%);
+  background: radial-gradient(circle at top, rgba(124, 58, 237, 0.28), transparent 52%);
   pointer-events: none;
 }
 
@@ -344,13 +344,13 @@ body {
    ========================================================================== */
 
 .liquid-glass {
-  background: rgba(255, 255, 255, 0.84) !important;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(124, 58, 237, 0.18) !important;
+  background: rgba(255, 255, 255, 0.94) !important;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(124, 58, 237, 0.24) !important;
   box-shadow:
-    inset 0 1px 1px rgba(255, 255, 255, 0.12),
-    0 8px 40px rgba(76, 29, 149, 0.08);
+    inset 0 1px 1px rgba(255, 255, 255, 0.2),
+    0 12px 46px rgba(76, 29, 149, 0.16);
 }
 
 .liquid-glass-input {
@@ -407,8 +407,52 @@ body {
   color: var(--text-soft) !important;
 }
 
+body,
+main,
+main section,
+main div,
+main p,
+main li,
+main span,
+main label,
+main small,
+main blockquote,
+main a,
+main h1,
+main h2,
+main h3,
+main h4,
+main h5,
+main h6 {
+  color: #ffffff;
+}
+
 .text-white {
   color: #ffffff !important;
+}
+
+.liquid-glass,
+.liquid-glass *,
+.about-stat,
+.about-stat *,
+.floating-tag,
+.floating-tag *,
+.service-item,
+.service-item *,
+.portfolio-card,
+.portfolio-card *,
+.testimonial-card,
+.testimonial-card *,
+.contact-card,
+.contact-card * {
+  color: #1a1230 !important;
+}
+
+.nav-link,
+.nav-link *,
+.mobile-nav-link,
+.mobile-nav-link * {
+  color: #8b5cf6 !important;
 }
 
 .text-white\/90, .text-white\/80, .text-white\/75 {
@@ -424,7 +468,7 @@ body {
 }
 
 .philosophy-highlight {
-  background: linear-gradient(90deg, #2B2140 0%, #7C3AED 100%);
+  background: linear-gradient(90deg, #ffffff 0%, #7C3AED 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -716,11 +760,11 @@ a[class*="bg-white"], button[class*="bg-white"] {
 }
 
 .timeline-step h3 {
-  color: var(--text-deep) !important;
+  color: #ffff ;
 }
 
 .timeline-step p {
-  color: var(--text-body) !important;
+  color: #ffff ;
 }
 
 /* ==========================================================================

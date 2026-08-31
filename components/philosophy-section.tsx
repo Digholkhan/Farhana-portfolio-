@@ -6,19 +6,19 @@ export default function PhilosophySection() {
         <div className="philosophy-glow" aria-hidden="true" />
 
         <div className="max-w-4xl mx-auto relative z-10">
-          <span className="font-mono text-xs uppercase tracking-widest text-purple-600 block mb-6">
+          <span className="font-mono text-xs uppercase tracking-widest text-purple-400 block mb-6">
             {'// 03 — Editorial Manifesto'}
           </span>
 
-          <blockquote className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-sans font-light tracking-tight text-[#2B2140] leading-tight mb-10">
-            “Content is not just communication. <br className="hidden sm:inline" />
+          <blockquote className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-sans font-light tracking-tight text-[#fff] leading-tight mb-10">
+            “Content is not just communication. 
             It is how a brand becomes <br className="hidden sm:inline" />
             <span className="philosophy-highlight font-serif italic">memorable.”</span>
           </blockquote>
 
           <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-purple-400 to-transparent mx-auto mb-10" />
 
-          <p className="text-base sm:text-lg text-[#5C5075] max-w-2xl mx-auto font-light leading-relaxed mb-12">
+          <p className="text-base sm:text-lg !text-[#ffff] max-w-2xl mx-auto font-light leading-relaxed mb-12">
             In an era saturated by automated noise, genuine distinction comes from point-of-view, intellectual clarity, and visceral wordcraft. I do not produce generic filler — I engineer ideas that demand reverence.
           </p>
 

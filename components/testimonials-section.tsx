@@ -31,12 +31,12 @@ export default function TestimonialsSection() {
             <span className="font-mono text-xs uppercase tracking-widest text-purple-600 block mb-3">
               {'// 05 — Client Praise'}
             </span>
-            <h2 className="text-3xl sm:text-5xl font-sans font-light tracking-tight text-[#2B2140]">
+            <h2 className="text-3xl sm:text-5xl font-sans font-light tracking-tight text-[#ffff]">
               Trusted by Visionary <br className="hidden sm:inline" />
               <span className="font-serif italic text-purple-accent">Founders &amp; CMOs.</span>
             </h2>
           </div>
-          <p className="text-sm text-[#5C5075] max-w-md font-light leading-relaxed">
+          <p className="text-sm text-[#fff] max-w-md font-light leading-relaxed">
             Read what leaders say about collaborating with Farhana Asha to articulate their highest-stakes narratives.
           </p>
         </div>
@@ -51,7 +51,7 @@ export default function TestimonialsSection() {
                 <span className="font-serif text-5xl text-purple-400 leading-none block mb-4 group-hover:text-purple-600 transition-colors">
                   “
                 </span>
-                <p className="text-sm sm:text-base text-[#2B2140] font-light leading-relaxed mb-8">
+                <p className="text-sm sm:text-base text-[#ffff] font-light leading-relaxed mb-8">
                   {t.quote}
                 </p>
               </div>

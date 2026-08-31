@@ -56,13 +56,13 @@ export default function Navigation() {
         {/* Monogram / Brand Logo */}
         <a href="#hero" className="group flex items-center gap-3 no-underline">
           <div className="relative w-9 h-9 rounded-full flex items-center justify-center liquid-glass border border-white/15 group-hover:border-purple-400/50 transition-all duration-300 shadow-purple-sm">
-            <span className="font-serif italic font-bold text-lg text-purple-400 group-hover:text-[#7C3AED] transition-colors">
+            <span className="font-serif italic font-bold text-lg !text-purple-600 group-hover:text-[#7C3AED] transition-colors">
               FA
             </span>
             <div className="absolute -inset-0.5 rounded-full bg-purple-500/15 blur-sm opacity-0 group-hover:opacity-100 transition-opacity" />
           </div>
           <div className="flex flex-col">
-            <span className="text-sm font-semibold tracking-wider uppercase text-[#2B2140] group-hover:text-purple-600 transition-colors">
+            <span className="text-sm font-semibold tracking-wider uppercase text-[#fff] !shadow-purple-sm group-hover:text-purple-600 transition-colors">
               Farhana Asha
             </span>
             <span className="text-[10px] tracking-widest text-muted uppercase font-mono">
@@ -83,7 +83,7 @@ export default function Navigation() {
                 key={item.id}
                 href={item.href}
                 className={`nav-link px-4 py-1.5 text-xs uppercase tracking-widest font-medium transition-colors relative ${
-                  isActive ? 'active text-purple-600 font-semibold' : 'text-[#5C5075] hover:text-purple-600'
+                  isActive ? 'active text-purple-400 font-semibold' : 'text-[#5C5075] hover:text-purple-600'
                 }`}
               >
                 <span>{item.label}</span>
@@ -147,28 +147,28 @@ export default function Navigation() {
             <a
               href="#hero"
               onClick={() => setMobileMenuOpen(false)}
-              className="mobile-nav-link text-sm uppercase tracking-wider font-medium text-purple-600 py-2 border-b border-white/5"
+              className="mobile-nav-link text-sm uppercase tracking-wider font-medium text-purple-400 py-2 border-b border-white/5"
             >
               Home
             </a>
             <a
               href="#services"
               onClick={() => setMobileMenuOpen(false)}
-              className="mobile-nav-link text-sm uppercase tracking-wider font-medium text-[#2B2140] hover:text-purple-600 py-2 border-b border-white/5"
+              className="mobile-nav-link text-sm uppercase tracking-wider font-medium text-purple-400 hover:text-purple-600 py-2 border-b border-white/5"
             >
               Services
             </a>
             <a
               href="#portfolio"
               onClick={() => setMobileMenuOpen(false)}
-              className="mobile-nav-link text-sm uppercase tracking-wider font-medium text-[#2B2140] hover:text-purple-600 py-2 border-b border-white/5"
+              className="mobile-nav-link text-sm uppercase tracking-wider font-medium text-purple-400 hover:text-purple-600 py-2 border-b border-white/5"
             >
               Selected Work
             </a>
             <a
               href="#philosophy"
               onClick={() => setMobileMenuOpen(false)}
-              className="mobile-nav-link text-sm uppercase tracking-wider font-medium text-[#2B2140] hover:text-purple-600 py-2 border-b border-white/5"
+              className="mobile-nav-link text-sm uppercase tracking-wider font-medium text-purple-400 hover:text-purple-600 py-2 border-b border-white/5"
             >
               Philosophy
             </a>

@@ -36,10 +36,10 @@ export default function ProcessSection() {
     <>
       <section ref={sectionRef} id="process" className="py-28 px-6 sm:px-8 max-w-6xl mx-auto relative">
         <div className="text-center max-w-2xl mx-auto mb-20">
-          <span className="font-mono text-xs uppercase tracking-widest text-purple-600 block mb-3">
+          <span className="font-mono text-xs uppercase tracking-widest text-purple-400 block mb-3">
             {'// 04 — Methodology'}
           </span>
-          <h2 className="text-3xl sm:text-5xl font-sans font-light tracking-tight text-[#2B2140]">
+          <h2 className="text-3xl sm:text-5xl font-sans font-light tracking-tight text-[#fff]">
             A Rigorous Path from <br />
             <span className="font-serif italic text-purple-accent">Abstract Concept to Market Resonance.</span>
           </h2>
@@ -63,10 +63,10 @@ export default function ProcessSection() {
                 <span className="step-badge inline-block font-mono text-sm px-3 py-1 rounded-full bg-purple-100 text-purple-700 border border-purple-200 mb-3 shadow-purple-sm">
                   Stage 01
                 </span>
-                <h3 className="text-2xl font-sans font-medium text-[#2B2140] mb-2">
+                <h3 className="text-2xl font-sans font-medium !text-[#ffff] mb-2">
                   Immersion &amp; Thesis Excavation
                 </h3>
-                <p className="text-sm text-[#5C5075] leading-relaxed">
+                <p className="text-sm !text-[#ffff] leading-relaxed">
                   Deconstructing your founders&apos; core convictions, market friction points, customer psychology, and competitive white space to find your untouchable narrative edge.
                 </p>
               </div>
@@ -89,7 +89,7 @@ export default function ProcessSection() {
                   <span className="text-[11px] font-mono uppercase tracking-wider text-purple-600 block mb-2 font-medium">
                     Key Deliverable
                   </span>
-                  <p className="text-xs text-[#2B2140] font-mono font-medium">
+                  <p className="text-xs !text-[#FFF] font-mono font-medium">
                     Tone-of-Voice Archetype &amp; Editorial Bible
                   </p>
                 </div>
@@ -98,10 +98,10 @@ export default function ProcessSection() {
                 <span className="step-badge inline-block font-mono text-sm px-3 py-1 rounded-full bg-purple-100 text-purple-700 border border-purple-200 mb-3 shadow-purple-sm">
                   Stage 02
                 </span>
-                <h3 className="text-2xl font-sans font-medium text-[#2B2140] mb-2">
+                <h3 className="text-2xl font-sans font-medium text-[#fff] mb-2">
                   Narrative Architecture
                 </h3>
-                <p className="text-sm text-[#5C5075] leading-relaxed">
+                <p className="text-sm text-[#fff] leading-relaxed">
                   Defining tone-of-voice archetypes, vocabulary lexicons, structural cadences, and content hierarchy to ensure unmistakable recognition.
                 </p>
               </div>

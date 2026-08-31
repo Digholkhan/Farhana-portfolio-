@@ -5,6 +5,7 @@ import ServicesSection from '@/components/services-section';
 import PortfolioSection from '@/components/portfolio-section';
 import PhilosophySection from '@/components/philosophy-section';
 import ProcessSection from '@/components/process-section';
+import QualificationsSection from '@/components/qualifications-section';
 import TestimonialsSection from '@/components/testimonials-section';
 import ContactSection from '@/components/contact-section';
 import { getSupabaseClient } from '@/lib/supabase-client';
@@ -46,6 +47,7 @@ export default async function HomePage() {
       <div className="page-section-overlay">
         <MetricStrip />
         <AboutSection />
+        <QualificationsSection />
         <ServicesSection />
         <PortfolioSection dynamicPosts={dynamicPosts} />
         <PhilosophySection />

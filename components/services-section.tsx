@@ -39,15 +39,15 @@ export default function ServicesSection() {
       <section id="services" className="py-24 px-6 sm:px-8 max-w-7xl mx-auto relative">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div>
-            <span className="font-mono text-xs uppercase tracking-widest text-purple-600 block mb-3">
+            <span className="font-mono text-xs uppercase tracking-widest text-purple-400 block mb-3">
               {'// 01 — Core Capabilities'}
             </span>
-            <h2 className="text-3xl sm:text-5xl font-sans font-light tracking-tight text-[#2B2140]">
+            <h2 className="text-3xl sm:text-5xl font-sans font-light tracking-tight text-[#fff]">
               Architectural Thinking for <br className="hidden sm:inline" />
               <span className="font-serif italic text-purple-accent">Modern Brand Voice.</span>
             </h2>
           </div>
-          <p className="text-sm sm:text-base text-[#5C5075] max-w-md font-light leading-relaxed">
+          <p className="text-sm sm:text-base !text-[#ffff] max-w-md font-light leading-relaxed">
             From full positioning revamps to signature longform campaigns, every engagement is tailored for intellectual resonance and commercial velocity.
           </p>
         </div>

@@ -15,10 +15,10 @@ export default function AboutSection() {
           </div>
 
           <div>
-            <span className="font-mono text-xs uppercase tracking-[0.24em] text-purple-600 block mb-4">
+            <span className="font-mono text-xs uppercase tracking-[0.24em] text-purple-400 block mb-4">
               {'// 02 — About Me'}
             </span>
-            <h2 className="text-3xl sm:text-5xl font-sans font-light tracking-tight text-[#2B2140] leading-tight">
+            <h2 className="text-3xl sm:text-5xl font-sans font-light tracking-tight text-[#ffff] leading-tight">
               I turn ideas into <span className="font-serif italic text-purple-accent">clear, compelling stories.</span>
             </h2>
 

@@ -30,10 +30,10 @@ export default function PortfolioSection({ dynamicPosts = [] }: PortfolioSection
       <section id="portfolio" className="py-24 px-6 sm:px-8 max-w-7xl mx-auto relative">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
-            <span className="font-mono text-xs uppercase tracking-widest text-purple-600 block mb-3">
+            <span className="font-mono text-xs uppercase tracking-widest text-purple-400 block mb-3">
               {'// 02 — Selected Case Studies'}
             </span>
-            <h2 className="text-3xl sm:text-5xl font-sans font-light tracking-tight text-[#2B2140]">
+            <h2 className="text-3xl sm:text-5xl font-sans font-light tracking-tight text-[#ffff]">
               Narratives Crafted for <br className="hidden sm:inline" />
               <span className="font-serif italic text-purple-accent">Category Preeminence.</span>
             </h2>

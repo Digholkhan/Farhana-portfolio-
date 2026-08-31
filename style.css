@@ -770,8 +770,8 @@ body { background: #FDFBFF !important; color: #1E1333 !important; }
 .text-white\/50, .text-white\/40, .text-white\/30 { color: #A89EC9 !important; }
 .liquid-glass, .glass-pill, .glass-circle { background: rgba(255,255,255,.74) !important; border-color: rgba(167,139,250,.28) !important; box-shadow: 0 8px 28px rgba(124,58,237,.08) !important; }
 .service-item, .portfolio-card, .metric-card, .testimonial-card { color: #1E1333; }
-.service-item h3, .portfolio-card h3, .timeline-step h3 { color: #1E1333 !important; }
-.service-item p, .portfolio-card p, .timeline-step p { color: #7B6BA0 !important; }
+.service-item h3, .portfolio-card h3, .timeline-step h3 { color: #fff !important; }
+.service-item p, .portfolio-card p, .timeline-step p { color: #fff !important; }
 footer { background: linear-gradient(180deg, #F5F0FF 0%, #EDE8FF 100%) !important; }
 a[class*="bg-white"], button[class*="bg-white"] { color: #1E1333 !important; }
 

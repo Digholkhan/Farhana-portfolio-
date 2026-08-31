@@ -64,7 +64,7 @@ export default function HeroSection() {
         </h1>
         <p className="mt-5 text-base sm:text-xl text-white/70 max-w-2xl mx-auto font-light leading-relaxed">
           I am a{' '}
-          <span id="typing-text" className="typing-text text-purple-accent font-medium">
+          <span id="typing-text" className="typing-text philosophy-highlight  font-medium">
             {displayText}
           </span>
           <span className="typing-cursor" aria-hidden="true">
@@ -80,7 +80,7 @@ export default function HeroSection() {
       <div className="flex flex-col sm:flex-row items-center gap-4 mb-16 z-10">
         <a
           href="#contact"
-          className="w-full sm:w-auto px-8 py-4 rounded-full text-sm font-semibold tracking-wider uppercase bg-white text-[#08040D] hover:bg-[#C4B5FD] transition-all duration-300 shadow-purple-glow hover:shadow-purple-glow-lg flex items-center justify-center gap-2 group"
+          className="w-full sm:w-auto px-8 py-4 rounded-full text-sm font-semibold tracking-wider uppercase bg-white text-[#2B2140] hover:bg-[#C4B5FD] transition-all duration-300 shadow-purple-glow hover:shadow-purple-glow-lg flex items-center justify-center gap-2 group"
         >
           <span>Start a Project</span>
           <svg

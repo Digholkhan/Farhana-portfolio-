@@ -60,7 +60,7 @@ export default function AudioAmbience() {
           <span className="w-0.5 h-3 bg-purple-300 rounded-full" />
           <span className="w-0.5 h-2 bg-purple-400 rounded-full group-hover:h-3 transition-all" />
         </span>
-        <span className="font-mono text-[11px] tracking-wider uppercase text-purple-200/80">
+        <span className="font-mono text-[11px] tracking-wider uppercase text-purple-400/80">
           {isActive ? 'Mute' : 'Ambient'}
         </span>
       </button>
