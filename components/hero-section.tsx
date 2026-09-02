@@ -80,9 +80,9 @@ export default function HeroSection() {
       <div className="flex flex-col sm:flex-row items-center gap-4 mb-16 z-10">
         <a
           href="#contact"
-          className="w-full sm:w-auto px-8 py-4 rounded-full text-sm font-semibold tracking-wider uppercase bg-white text-[#2B2140] hover:bg-[#C4B5FD] transition-all duration-300 shadow-purple-glow hover:shadow-purple-glow-lg flex items-center justify-center gap-2 group"
+          className="w-full sm:w-auto px-8 py-4 rounded-full text-sm font-semibold tracking-wider uppercase bg-white !text-[#2B2140] hover:bg-[#C4B5FD] transition-all duration-300 shadow-purple-glow hover:shadow-purple-glow-lg flex items-center justify-center gap-2 group"
         >
-          <span>Start a Project</span>
+          <span className='!text-[#2B2140]'>Start a Project</span>
           <svg
             className="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
             fill="none"
