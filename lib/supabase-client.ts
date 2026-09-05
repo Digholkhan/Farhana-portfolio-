@@ -1,5 +1,7 @@
 import { createClient } from '@supabase/supabase-js';
 
+let supabaseClient: ReturnType<typeof createClient> | null = null;
+
 export function getSupabaseClient() {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
@@ -8,11 +10,15 @@ export function getSupabaseClient() {
     return null;
   }
 
-  return createClient(supabaseUrl, supabaseAnonKey, {
+  if (supabaseClient) return supabaseClient;
+
+  supabaseClient = createClient(supabaseUrl, supabaseAnonKey, {
     auth: {
       persistSession: true,
       autoRefreshToken: true,
       detectSessionInUrl: true,
     },
   });
+
+  return supabaseClient;
 }

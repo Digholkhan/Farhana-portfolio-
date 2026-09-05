@@ -29,16 +29,18 @@ export default async function HomePage() {
   if (supabase) {
     try {
       const { data: contentRow } = await supabase.from('site_content').select('content').eq('id', 'default').maybeSingle();
-      siteContent = mergeSiteContent(contentRow?.content);
+      const siteContentRow = contentRow as { content?: unknown } | null;
+      siteContent = mergeSiteContent(siteContentRow?.content);
 
-      const { data } = await supabase
+      const { data: postsData } = await supabase
         .from('posts')
         .select('*')
         .eq('status', 'published')
         .order('published_at', { ascending: false });
 
-      if (data && data.length > 0) {
-        dynamicPosts = data;
+      const posts = postsData as typeof dynamicPosts;
+      if (posts && posts.length > 0) {
+        dynamicPosts = posts;
       }
     } catch {
       // Graceful fallback to portfolio case studies if Supabase table is not configured yet

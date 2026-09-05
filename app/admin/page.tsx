@@ -40,7 +40,11 @@ export default function AdminPage() {
   const loadContent = async () => {
     const supabase = getSupabaseClient();
     if (!supabase) return;
-    const { data, error: loadError } = await supabase.from('site_content').select('content').eq('id', 'default').maybeSingle();
+    const { data, error: loadError } = await supabase
+      .from('site_content')
+      .select('content')
+      .eq('id', 'default')
+      .maybeSingle();
     if (loadError) {
       setError(
         loadError.code === 'PGRST205'
@@ -49,7 +53,8 @@ export default function AdminPage() {
       );
       return;
     }
-    const nextContent = mergeSiteContent(data?.content);
+    const contentRow = data as { content?: unknown } | null;
+    const nextContent = mergeSiteContent(contentRow?.content);
     setContent(nextContent);
     setEditorValue(JSON.stringify(nextContent[activeSection], null, 2));
   };
@@ -99,7 +104,12 @@ export default function AdminPage() {
       setLoading(false);
       return;
     }
-    const { error: saveError } = await supabase.from('site_content').upsert({ id: 'default', content: nextContent, updated_at: new Date().toISOString() });
+    const contentPayload = {
+      id: 'default',
+      content: nextContent,
+      updated_at: new Date().toISOString(),
+    };
+    const { error: saveError } = await supabase.from('site_content').upsert(contentPayload as never);
     if (saveError) {
       setError(
         saveError.code === '42501'
