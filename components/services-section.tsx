@@ -1,5 +1,8 @@
-export default function ServicesSection() {
-  const services = [
+import { defaultSiteContent, SiteContent } from '@/lib/site-content';
+
+export default function ServicesSection({ content = defaultSiteContent.services }: { content?: SiteContent['services'] }) {
+  const services = content.items;
+  /*
     {
       num: '01',
       title: 'Brand Narrative Architecture',
@@ -32,7 +35,7 @@ export default function ServicesSection() {
         'Cinematic commercial scripts, documentary voiceovers, visual tone moodboards, and multidisciplinary campaign concepting.',
       tags: ['Video Scripts', 'Campaign Concept'],
     },
-  ];
+  ]; */
 
   return (
     <>
@@ -40,15 +43,14 @@ export default function ServicesSection() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div>
             <span className="font-mono text-xs uppercase tracking-widest text-purple-400 block mb-3">
-              {'// 01 — Core Capabilities'}
+              {content.eyebrow}
             </span>
             <h2 className="text-3xl sm:text-5xl font-sans font-light tracking-tight text-[#fff]">
-              Architectural Thinking for <br className="hidden sm:inline" />
-              <span className="font-serif italic text-purple-accent">Modern Brand Voice.</span>
+              {content.heading}
             </h2>
           </div>
           <p className="text-sm sm:text-base !text-[#ffff] max-w-md font-light leading-relaxed">
-            From full positioning revamps to signature longform campaigns, every engagement is tailored for intellectual resonance and commercial velocity.
+            {content.intro}
           </p>
         </div>
 

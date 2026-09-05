@@ -1,8 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import { caseStudiesData, CaseStudy } from '@/lib/case-studies-data';
+import { CaseStudy } from '@/lib/case-studies-data';
 import ProjectModal from './project-modal';
+import { defaultSiteContent, SiteContent } from '@/lib/site-content';
 
 interface Post {
   id: string;
@@ -18,11 +19,11 @@ interface PortfolioSectionProps {
   dynamicPosts?: Post[];
 }
 
-export default function PortfolioSection({ dynamicPosts = [] }: PortfolioSectionProps) {
+export default function PortfolioSection({ dynamicPosts = [], content = defaultSiteContent.portfolio }: PortfolioSectionProps & { content?: SiteContent['portfolio'] }) {
   const [filter, setFilter] = useState<'all' | 'strategy' | 'copy' | 'campaign'>('all');
   const [selectedProject, setSelectedProject] = useState<CaseStudy | null>(null);
 
-  const projects = Object.values(caseStudiesData);
+  const projects = content.projects;
   const filteredProjects = filter === 'all' ? projects : projects.filter((p) => p.filterCategory === filter);
 
   return (
@@ -31,11 +32,10 @@ export default function PortfolioSection({ dynamicPosts = [] }: PortfolioSection
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
             <span className="font-mono text-xs uppercase tracking-widest text-purple-400 block mb-3">
-              {'// 02 — Selected Case Studies'}
+              {content.eyebrow}
             </span>
             <h2 className="text-3xl sm:text-5xl font-sans font-light tracking-tight text-[#ffff]">
-              Narratives Crafted for <br className="hidden sm:inline" />
-              <span className="font-serif italic text-purple-accent">Category Preeminence.</span>
+              {content.heading}
             </h2>
           </div>
 

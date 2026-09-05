@@ -9,11 +9,13 @@ import QualificationsSection from '@/components/qualifications-section';
 import TestimonialsSection from '@/components/testimonials-section';
 import ContactSection from '@/components/contact-section';
 import { getSupabaseClient } from '@/lib/supabase-client';
+import { defaultSiteContent, mergeSiteContent, SiteContent } from '@/lib/site-content';
 
 export const revalidate = 60; // Revalidate every 60 seconds
 
 export default async function HomePage() {
   const supabase = getSupabaseClient();
+  let siteContent: SiteContent = defaultSiteContent;
   let dynamicPosts: Array<{
     id: string;
     title: string;
@@ -26,6 +28,9 @@ export default async function HomePage() {
 
   if (supabase) {
     try {
+      const { data: contentRow } = await supabase.from('site_content').select('content').eq('id', 'default').maybeSingle();
+      siteContent = mergeSiteContent(contentRow?.content);
+
       const { data } = await supabase
         .from('posts')
         .select('*')
@@ -47,13 +52,13 @@ export default async function HomePage() {
       <div className="page-section-overlay">
         <MetricStrip />
         <AboutSection />
-        <QualificationsSection />
-        <ServicesSection />
-        <PortfolioSection dynamicPosts={dynamicPosts} />
-        <PhilosophySection />
+        <QualificationsSection content={siteContent.education} />
+        <ServicesSection content={siteContent.services} />
+        <PortfolioSection dynamicPosts={dynamicPosts} content={siteContent.portfolio} />
+        <PhilosophySection content={siteContent.philosophy} />
         <ProcessSection />
-        <TestimonialsSection />
-        <ContactSection />
+        <TestimonialsSection content={siteContent.testimonials} />
+        <ContactSection content={siteContent.contact} />
       </div>
     </>
   );

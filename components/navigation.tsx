@@ -2,11 +2,27 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
+  const pathname = usePathname();
+  const homeHref = (hash: string) => pathname === '/' ? hash : `/${hash}`;
+
+  const handleSectionClick = (event: React.MouseEvent<HTMLAnchorElement>, hash: string) => {
+    setMobileMenuOpen(false);
+
+    if (pathname !== '/') return;
+
+    const section = document.getElementById(hash.slice(1));
+    if (!section) return;
+
+    event.preventDefault();
+    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    window.history.replaceState(null, '', hash);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,7 +70,7 @@ export default function Navigation() {
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8 flex items-center justify-between">
         {/* Monogram / Brand Logo */}
-        <a href="#hero" className="group flex items-center gap-3 no-underline">
+        <a href={homeHref('#hero')} className="group flex items-center gap-3 no-underline">
           <div className="relative w-9 h-9 rounded-full flex items-center justify-center liquid-glass border border-white/15 group-hover:border-purple-400/50 transition-all duration-300 shadow-purple-sm">
             <span className="font-serif italic font-bold text-lg !text-purple-600 group-hover:text-[#7C3AED] transition-colors">
               FA
@@ -81,7 +97,8 @@ export default function Navigation() {
             return (
               <a
                 key={item.id}
-                href={item.href}
+                href={homeHref(item.href)}
+                onClick={(event) => handleSectionClick(event, item.href)}
                 className={`nav-link px-4 py-1.5 text-xs uppercase tracking-widest font-medium transition-colors relative ${
                   isActive ? 'active text-purple-400 font-semibold' : 'text-[#5C5075] hover:text-purple-600'
                 }`}
@@ -103,7 +120,8 @@ export default function Navigation() {
         {/* CTA Button & Mobile Menu Toggle */}
         <div className="flex items-center gap-4">
           <a
-            href="#contact"
+            href={homeHref('#contact')}
+            onClick={(event) => handleSectionClick(event, '#contact')}
             className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase bg-white text-[#08040D] hover:bg-[#C4B5FD] transition-all duration-300 shadow-purple-glow hover:shadow-purple-glow-lg group"
           >
             <span>Let&apos;s Talk</span>
@@ -145,43 +163,43 @@ export default function Navigation() {
         >
           <div className="flex flex-col gap-3">
             <a
-              href="#hero"
-              onClick={() => setMobileMenuOpen(false)}
+              href={homeHref('#hero')}
+              onClick={(event) => handleSectionClick(event, '#hero')}
               className="mobile-nav-link text-sm uppercase tracking-wider font-medium text-purple-400 py-2 border-b border-white/5"
             >
               Home
             </a>
             <a
-              href="#services"
-              onClick={() => setMobileMenuOpen(false)}
+              href={homeHref('#services')}
+              onClick={(event) => handleSectionClick(event, '#services')}
               className="mobile-nav-link text-sm uppercase tracking-wider font-medium text-purple-400 hover:text-purple-600 py-2 border-b border-white/5"
             >
               Services
             </a>
             <a
-              href="#portfolio"
-              onClick={() => setMobileMenuOpen(false)}
+              href={homeHref('#portfolio')}
+              onClick={(event) => handleSectionClick(event, '#portfolio')}
               className="mobile-nav-link text-sm uppercase tracking-wider font-medium text-purple-400 hover:text-purple-600 py-2 border-b border-white/5"
             >
               Selected Work
             </a>
             <a
-              href="#philosophy"
-              onClick={() => setMobileMenuOpen(false)}
+              href={homeHref('#philosophy')}
+              onClick={(event) => handleSectionClick(event, '#philosophy')}
               className="mobile-nav-link text-sm uppercase tracking-wider font-medium text-purple-400 hover:text-purple-600 py-2 border-b border-white/5"
             >
               Philosophy
             </a>
             <a
-              href="#process"
-              onClick={() => setMobileMenuOpen(false)}
+              href={homeHref('#process')}
+              onClick={(event) => handleSectionClick(event, '#process')}
               className="mobile-nav-link text-sm uppercase tracking-wider font-medium text-[#2B2140] hover:text-purple-600 py-2 border-b border-white/5"
             >
               Process
             </a>
             <a
-              href="#testimonials"
-              onClick={() => setMobileMenuOpen(false)}
+              href={homeHref('#testimonials')}
+              onClick={(event) => handleSectionClick(event, '#testimonials')}
               className="mobile-nav-link text-sm uppercase tracking-wider font-medium text-[#2B2140] hover:text-purple-600 py-2 border-b border-white/5"
             >
               Client Praise
@@ -194,8 +212,8 @@ export default function Navigation() {
               Admin Panel
             </Link>
             <a
-              href="#contact"
-              onClick={() => setMobileMenuOpen(false)}
+              href={homeHref('#contact')}
+              onClick={(event) => handleSectionClick(event, '#contact')}
               className="mobile-nav-link mt-2 text-center text-xs uppercase tracking-wider font-bold py-3 rounded-xl bg-purple-500 text-white shadow-purple-glow"
             >
               Get In Touch

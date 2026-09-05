@@ -1,6 +1,12 @@
+'use client';
+
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function Footer() {
+  const pathname = usePathname();
+  const homeHref = (hash: string) => pathname === '/' ? hash : `/${hash}`;
+
   return (
     <footer className="relative pt-24 pb-12 px-6 sm:px-8 border-t border-purple-200/50 overflow-hidden">
       {/* Huge Ambient Background Typography */}
@@ -11,7 +17,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 pb-16 border-b border-purple-200/60">
           <div className="md:col-span-2">
-            <a href="#hero" className="text-xl font-sans font-semibold tracking-wider text-[#2B2140] uppercase block mb-3">
+            <a href={homeHref('#hero')} className="text-xl font-sans font-semibold tracking-wider text-[#2B2140] uppercase block mb-3">
               Farhana Asha
             </a>
             <p className="text-xs text-[#5C5075] max-w-sm leading-relaxed mb-6">
@@ -29,27 +35,27 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2.5 text-xs text-[#5C5075]">
               <li>
-                <a href="#services" className="hover:text-purple-700 transition-colors">
+                <a href={homeHref('#services')} className="hover:text-purple-700 transition-colors">
                   Services &amp; Offerings
                 </a>
               </li>
               <li>
-                <a href="#portfolio" className="hover:text-purple-700 transition-colors">
+                <a href={homeHref('#portfolio')} className="hover:text-purple-700 transition-colors">
                   Selected Case Studies
                 </a>
               </li>
               <li>
-                <a href="#philosophy" className="hover:text-purple-700 transition-colors">
+                <a href={homeHref('#philosophy')} className="hover:text-purple-700 transition-colors">
                   Editorial Philosophy
                 </a>
               </li>
               <li>
-                <a href="#process" className="hover:text-purple-700 transition-colors">
+                <a href={homeHref('#process')} className="hover:text-purple-700 transition-colors">
                   Process &amp; Engagement
                 </a>
               </li>
               <li>
-                <a href="#contact" className="hover:text-purple-700 transition-colors">
+                <a href={homeHref('#contact')} className="hover:text-purple-700 transition-colors">
                   Inquire for Projects
                 </a>
               </li>
@@ -112,7 +118,7 @@ export default function Footer() {
 
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-mono text-[#786D8D]">
           <p>&copy; 2026 Farhana Asha. All Rights Reserved. Luxury Editorial Identity.</p>
-          <p className="text-purple-600 font-medium">Designed with Purple Cinematic Vision</p>
+          <p className="text-purple-600 font-medium">Designed & Developed by <a href="https://www.facebook.com/md.mohiuddin.944305/" target='_blank'>Md Mohiuddin</a></p>
         </div>
       </div>
     </footer>

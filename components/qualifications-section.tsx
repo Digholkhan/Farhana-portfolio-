@@ -1,5 +1,8 @@
-export default function QualificationsSection() {
-  const qualifications = [
+import { defaultSiteContent, SiteContent } from '@/lib/site-content';
+
+export default function QualificationsSection({ content = defaultSiteContent.education }: { content?: SiteContent['education'] }) {
+  const qualifications = content.items;
+  /*
     {
       year: '2009',
       title: 'BBA in Finance',
@@ -30,17 +33,17 @@ export default function QualificationsSection() {
       title: 'Content Planner | Brand & Marketing',
       detail: 'Creative IT Institute',
     },
-  ];
+  ]; */
 
   return (
     <>
       <section id="qualifications" className="py-28 px-6 sm:px-8 max-w-6xl mx-auto relative">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="font-mono text-xs uppercase tracking-[0.24em] text-purple-400 block mb-4">
-            {'// 03 — Education & Experience'}
+            {content.eyebrow}
           </span>
           <h2 className="text-3xl sm:text-5xl font-sans font-light tracking-tight text-[#ffff] leading-tight">
-            Education, training, and <span className="font-serif italic text-purple-accent">professional growth.</span>
+            {content.heading}
           </h2>
         </div>
 

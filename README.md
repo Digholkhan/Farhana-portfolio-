@@ -14,7 +14,6 @@ Copy `.env.example` to `.env.local` and set your values:
 ```bash
 NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
-SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
 ```
 
 ## Local development
@@ -33,11 +32,11 @@ npm run dev
 ## Supabase setup plan
 - Create a new project in Supabase
 - Enable Email Auth
-- Create a `posts` table
-- Add Row Level Security policies
-- Upload images to storage
+- Run `supabase/site-content.sql` in the Supabase SQL Editor
+- Set the owner's `app_metadata.role` to `owner` from the Supabase SQL Editor
+- Upload images to storage when storage support is added
 
 ## Admin workflow
 - Log in on `/admin`
-- Create and publish portfolio posts
+- Edit and save portfolio content
 - Public site reads only published posts

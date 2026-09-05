@@ -1,5 +1,8 @@
-export default function TestimonialsSection() {
-  const testimonials = [
+import { defaultSiteContent, SiteContent } from '@/lib/site-content';
+
+export default function TestimonialsSection({ content = defaultSiteContent.testimonials }: { content?: SiteContent['testimonials'] }) {
+  const testimonials = content.items;
+  /*
     {
       initials: 'EC',
       quote:
@@ -21,7 +24,7 @@ export default function TestimonialsSection() {
       author: 'Sophia Laurent',
       role: 'Creative Director, Atelier Velvet',
     },
-  ];
+  ]; */
 
   return (
     <>
@@ -29,15 +32,14 @@ export default function TestimonialsSection() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div>
             <span className="font-mono text-xs uppercase tracking-widest text-purple-600 block mb-3">
-              {'// 05 — Client Praise'}
+              {content.eyebrow}
             </span>
             <h2 className="text-3xl sm:text-5xl font-sans font-light tracking-tight text-[#ffff]">
-              Trusted by Visionary <br className="hidden sm:inline" />
-              <span className="font-serif italic text-purple-accent">Founders &amp; CMOs.</span>
+              {content.heading}
             </h2>
           </div>
           <p className="text-sm text-[#fff] max-w-md font-light leading-relaxed">
-            Read what leaders say about collaborating with Farhana Asha to articulate their highest-stakes narratives.
+            {content.intro}
           </p>
         </div>
 

@@ -55,7 +55,8 @@ export default function HeroSection() {
 
       {/* Main Headline with Editorial Accent */}
       <div className="max-w-4xl mx-auto mb-8">
-        <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-sans font-light tracking-tight text-white leading-[1.08]">
+        <div className='hero-headline-glass'>
+        <h1 className=" text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-sans font-light tracking-tight text-white leading-[1.08]">
           Words that <br className="hidden sm:inline" />
           <span className="font-serif italic text-purple-accent relative inline-block">
             build brands.
@@ -71,6 +72,7 @@ export default function HeroSection() {
             |
           </span>
         </p>
+        </div>
         <p className="mt-4 text-base sm:text-xl text-white/70 max-w-2xl mx-auto font-light leading-relaxed">
           I shape high-conviction narrative architectures, brand positioning, and editorial strategies that transform emerging concepts into category-defining market leaders.
         </p>

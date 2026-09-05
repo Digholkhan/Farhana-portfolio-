@@ -1,4 +1,6 @@
-export default function PhilosophySection() {
+import { defaultSiteContent, SiteContent } from '@/lib/site-content';
+
+export default function PhilosophySection({ content = defaultSiteContent.philosophy }: { content?: SiteContent['philosophy'] }) {
   return (
     <>
       <section id="philosophy" className="py-32 px-6 sm:px-8 relative overflow-hidden text-center">
@@ -7,19 +9,17 @@ export default function PhilosophySection() {
 
         <div className="max-w-4xl mx-auto relative z-10">
           <span className="font-mono text-xs uppercase tracking-widest text-purple-400 block mb-6">
-            {'// 03 — Editorial Manifesto'}
+            {content.eyebrow}
           </span>
 
           <blockquote className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-sans font-light tracking-tight text-[#fff] leading-tight mb-10">
-            “Content is not just communication. 
-            It is how a brand becomes <br className="hidden sm:inline" />
-            <span className="philosophy-highlight font-serif italic">memorable.”</span>
+            “{content.quote}”
           </blockquote>
 
           <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-purple-400 to-transparent mx-auto mb-10" />
 
           <p className="text-base sm:text-lg !text-[#ffff] max-w-2xl mx-auto font-light leading-relaxed mb-12">
-            In an era saturated by automated noise, genuine distinction comes from point-of-view, intellectual clarity, and visceral wordcraft. I do not produce generic filler — I engineer ideas that demand reverence.
+            {content.body}
           </p>
 
           {/* Interactive Transformation Showcase: Before vs Farhana's Craft */}
@@ -40,7 +40,7 @@ export default function PhilosophySection() {
                   Standard Generic Copy
                 </span>
                 <p className="text-xs sm:text-sm text-[#786D8D] italic leading-relaxed font-sans">
-                  &quot;We provide cutting-edge cloud software solutions that help streamline your workflow and optimize company productivity seamlessly.&quot;
+                  &quot;{content.genericCopy}&quot;
                 </p>
               </div>
               <div className="p-4 rounded-xl bg-purple-100/60 border border-purple-300 relative">
@@ -48,7 +48,7 @@ export default function PhilosophySection() {
                   Farhana&apos;s Strategic Narrative
                 </span>
                 <p className="text-xs sm:text-sm text-[#2B2140] leading-relaxed font-sans font-medium">
-                  &quot;We eliminate the operational friction between ambition and execution — giving visionary teams the clarity to build at scale.&quot;
+                  &quot;{content.strategicCopy}&quot;
                 </p>
                 <div className="absolute -inset-px rounded-xl border border-purple-400/20 pointer-events-none" />
               </div>
