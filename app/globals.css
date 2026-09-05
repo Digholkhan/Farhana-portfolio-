@@ -606,12 +606,14 @@ main h6 {
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(255, 255, 255, 0.35) 50%,
+    rgba(180, 82, 180, 0.409) 40%,
     transparent 100%
   );
   background-size: 200% 100%;
-  animation: shimmerText 6s infinite;
+  animation: shimmerText 5s infinite;
   pointer-events: none;
+  z-index: -1;
+  border-radius: 10px;
 }
 /* .hero-headline-glass {
     padding: 30px 0px;

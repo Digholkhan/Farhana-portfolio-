@@ -50,7 +50,7 @@ export default function TestimonialsSection({ content = defaultSiteContent.testi
               className="liquid-glass p-8 rounded-2xl border border-white/10 flex flex-col justify-between hover:border-purple-500/40 transition-all duration-300 group"
             >
               <div>
-                <span className="font-serif text-5xl text-purple-400 leading-none block mb-4 group-hover:text-purple-600 transition-colors">
+                <span className="font-serif text-5xl text-purple-300 leading-none block mb-4 group-hover:text-purple-600 transition-colors">
                   “
                 </span>
                 <p className="text-sm sm:text-base text-[#ffff] font-light leading-relaxed mb-8">
