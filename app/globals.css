@@ -628,13 +628,13 @@ body {
    ========================================================================== */
 
 .liquid-glass {
-  background: rgba(255, 255, 255, 0.94) !important;
+  background: linear-gradient(135deg, rgba(31, 24, 42, 0.7), rgba(10, 7, 18, 0.58)) !important;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(124, 58, 237, 0.24) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
   box-shadow:
-    inset 0 1px 1px rgba(255, 255, 255, 0.2),
-    0 12px 46px rgba(76, 29, 149, 0.16);
+    inset 0 1px 1px rgba(255, 255, 255, 0.1),
+    0 18px 46px rgba(0, 0, 0, 0.2);
 }
 
 .liquid-glass-input {
@@ -729,7 +729,7 @@ main h6 {
 .testimonial-card *,
 .contact-card,
 .contact-card * {
-  color: #1a1230 !important;
+  color: #ffffff !important;
 }
 
 .nav-link,
@@ -939,7 +939,7 @@ a[class*="bg-white"], button[class*="bg-white"] {
 }
 
 .service-item:hover {
-  background: rgba(255, 255, 255, 0.95) !important;
+  background: linear-gradient(135deg, rgba(49, 35, 67, 0.78), rgba(15, 10, 25, 0.7)) !important;
   box-shadow:
     inset 0 1px 1px rgba(255, 255, 255, 0.2),
     0 12px 35px rgba(124, 58, 237, 0.16);
@@ -959,21 +959,21 @@ a[class*="bg-white"], button[class*="bg-white"] {
 }
 
 .service-item h3 {
-  color: var(--text-deep) !important;
+  color: #ffffff !important;
 }
 
 .service-item p {
-  color: var(--text-body) !important;
+  color: rgba(255, 255, 255, 0.62) !important;
 }
 
 .service-num {
-  color: var(--text-faint) !important;
+  color: rgba(255, 255, 255, 0.5) !important;
 }
 
 .service-tag {
-  color: var(--text-body) !important;
-  background: rgba(124, 58, 237, 0.07) !important;
-  border-color: rgba(124, 58, 237, 0.16) !important;
+  color: #d9ccff !important;
+  background: rgba(124, 58, 237, 0.16) !important;
+  border-color: rgba(196, 181, 253, 0.24) !important;
 }
 
 /* ==========================================================================
@@ -992,11 +992,11 @@ a[class*="bg-white"], button[class*="bg-white"] {
 }
 
 .portfolio-card h3 {
-  color: var(--text-deep) !important;
+  color: #ffffff !important;
 }
 
 .portfolio-card p {
-  color: var(--text-body) !important;
+  color: rgba(255, 255, 255, 0.62) !important;
 }
 
 .filter-btn {
