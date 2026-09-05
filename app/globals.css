@@ -225,6 +225,163 @@ body {
   .admin-form-grid > .admin-form-field:last-child:nth-child(odd), .admin-form-grid > .admin-form-field:nth-last-child(2) { grid-column: auto; }
 }
 
+/* Education and experience editorial timeline */
+.qualifications-section {
+  isolation: isolate;
+}
+
+.qualifications-layout {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.72fr) minmax(0, 1.28fr);
+  gap: clamp(3rem, 8vw, 8rem);
+  align-items: start;
+}
+
+.qualifications-intro {
+  position: sticky;
+  top: 7rem;
+}
+
+.qualifications-summary {
+  max-width: 25rem;
+  margin-top: 1.5rem;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.qualifications-stamp {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: fit-content;
+  margin-top: 3rem;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid rgba(196, 181, 253, 0.28);
+  color: rgba(196, 181, 253, 0.7);
+  transform: rotate(-5deg);
+}
+
+.qualifications-stamp span {
+  color: #c4b5fd;
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-style: italic;
+}
+
+.qualifications-stamp small {
+  font: 0.55rem/1.45 var(--font-mono);
+  letter-spacing: 0.18em;
+}
+
+.qualifications-timeline {
+  position: relative;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.qualifications-timeline::before {
+  content: '';
+  position: absolute;
+  top: 1.7rem;
+  bottom: 1.7rem;
+  left: 1.1rem;
+  width: 1px;
+  background: linear-gradient(180deg, rgba(196, 181, 253, 0.6), rgba(196, 181, 253, 0.08));
+}
+
+.qualification-entry {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2.2rem minmax(0, 1fr);
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.qualification-marker {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border: 1px solid rgba(196, 181, 253, 0.55);
+  border-radius: 50%;
+  color: #c4b5fd;
+  background: #090610;
+  font: 0.58rem var(--font-mono);
+}
+
+.qualification-content {
+  min-height: 9rem;
+  padding: 1.35rem 1.5rem 1.45rem;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 1rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.025));
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.08);
+  transition: border-color 0.3s ease, transform 0.3s ease, background 0.3s ease;
+}
+
+.qualification-entry:hover .qualification-content {
+  border-color: rgba(196, 181, 253, 0.42);
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.16), rgba(255, 255, 255, 0.04));
+  transform: translateX(0.35rem);
+}
+
+.qualification-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  color: #c4b5fd;
+  font: 0.62rem var(--font-mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.qualification-meta span:last-child {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.qualification-content h3 {
+  margin-top: 0.8rem;
+  color: #fff !important;
+  font-size: clamp(1.15rem, 2vw, 1.55rem);
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.qualification-content p {
+  margin-top: 0.45rem;
+  color: rgba(255, 255, 255, 0.58) !important;
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+@media (max-width: 760px) {
+  .qualifications-layout {
+    grid-template-columns: 1fr;
+    gap: 2.75rem;
+  }
+
+  .qualifications-intro {
+    position: static;
+  }
+
+  .qualifications-stamp {
+    margin-top: 2rem;
+  }
+
+  .qualification-content {
+    padding: 1.1rem 1.1rem 1.2rem;
+  }
+
+  .qualification-meta {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+}
+
 /* Selection */
 ::selection {
   background: #7C3AED;
