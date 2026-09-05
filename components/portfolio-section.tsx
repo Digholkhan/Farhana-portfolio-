@@ -40,7 +40,7 @@ export default function PortfolioSection({ dynamicPosts = [], content = defaultS
           </div>
 
           {/* Category Filter Tabs */}
-          <div className="flex flex-wrap gap-2 liquid-glass p-1.5 rounded-full border border-white/10" id="portfolio-filters">
+          <div className="portfolio-filters flex flex-nowrap gap-2 liquid-glass p-1.5 rounded-full border border-white/10" id="portfolio-filters">
             {[
               { label: 'All', value: 'all' },
               { label: 'Strategy', value: 'strategy' },
@@ -50,7 +50,7 @@ export default function PortfolioSection({ dynamicPosts = [], content = defaultS
               <button
                 key={tab.value}
                 onClick={() => setFilter(tab.value as typeof filter)}
-                className={`filter-btn px-4 py-1.5 rounded-full text-xs font-mono uppercase tracking-wider transition-all ${
+                className={`filter-btn shrink-0 whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-mono uppercase tracking-wider transition-all ${
                   filter === tab.value
                     ? 'active text-purple-700 bg-purple-100 font-semibold border border-purple-300'
                     : 'text-[#5C5075] hover:text-purple-700'

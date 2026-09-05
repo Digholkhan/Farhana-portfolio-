@@ -1003,6 +1003,16 @@ a[class*="bg-white"], button[class*="bg-white"] {
   cursor: pointer;
 }
 
+.portfolio-filters {
+  max-width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.portfolio-filters::-webkit-scrollbar {
+  display: none;
+}
+
 .filter-btn.active {
   background: rgba(124, 58, 237, 0.2) !important;
   color: #7C3AED !important;
