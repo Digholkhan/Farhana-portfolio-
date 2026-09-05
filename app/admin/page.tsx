@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { FormEvent, useEffect, useState } from 'react';
 import { getSupabaseClient } from '@/lib/supabase-client';
 import { defaultSiteContent, mergeSiteContent, SiteContent } from '@/lib/site-content';
+import AdminContentForm from '@/components/admin-content-form';
 
 const editorSections: Array<{ key: keyof SiteContent; label: string }> = [
   { key: 'education', label: 'Education & Experience' },
@@ -20,7 +21,6 @@ export default function AdminPage() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [content, setContent] = useState<SiteContent>(defaultSiteContent);
   const [activeSection, setActiveSection] = useState<keyof SiteContent>('education');
-  const [editorValue, setEditorValue] = useState(JSON.stringify(defaultSiteContent.education, null, 2));
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
@@ -56,12 +56,10 @@ export default function AdminPage() {
     const contentRow = data as { content?: unknown } | null;
     const nextContent = mergeSiteContent(contentRow?.content);
     setContent(nextContent);
-    setEditorValue(JSON.stringify(nextContent[activeSection], null, 2));
   };
 
   const selectSection = (key: keyof SiteContent) => {
     setActiveSection(key);
-    setEditorValue(JSON.stringify(content[key], null, 2));
     setMessage('');
   };
 
@@ -89,15 +87,6 @@ export default function AdminPage() {
     setLoading(true);
     setError('');
     setMessage('');
-    let sectionValue: SiteContent[typeof activeSection];
-    try {
-      sectionValue = JSON.parse(editorValue) as SiteContent[typeof activeSection];
-    } catch {
-      setError('The section must contain valid JSON.');
-      setLoading(false);
-      return;
-    }
-    const nextContent = { ...content, [activeSection]: sectionValue };
     const supabase = getSupabaseClient();
     if (!supabase) {
       setError('Supabase is not configured yet.');
@@ -106,7 +95,7 @@ export default function AdminPage() {
     }
     const contentPayload = {
       id: 'default',
-      content: nextContent,
+      content,
       updated_at: new Date().toISOString(),
     };
     const { error: saveError } = await supabase.from('site_content').upsert(contentPayload as never);
@@ -120,7 +109,7 @@ export default function AdminPage() {
       );
     }
     else {
-      setContent(nextContent);
+      setContent(content);
       setMessage(`${editorSections.find((section) => section.key === activeSection)?.label} saved.`);
     }
     setLoading(false);
@@ -159,9 +148,9 @@ export default function AdminPage() {
               {editorSections.map((section) => <button type="button" key={section.key} className={activeSection === section.key ? 'active' : ''} onClick={() => selectSection(section.key)}>{section.label}<span>→</span></button>)}
             </aside>
             <form className="admin-editor-card" onSubmit={handleSave}>
-              <div className="admin-editor-heading"><div><span className="admin-kicker">JSON content record</span><h2>{editorSections.find((section) => section.key === activeSection)?.label}</h2></div><span className="admin-status">Supabase sync</span></div>
-              <textarea value={editorValue} onChange={(event) => setEditorValue(event.target.value)} spellCheck={false} aria-label="Section JSON content" />
-              <div className="admin-editor-footer"><span>Arrays control repeatable items such as services, education, and testimonials.</span><button className="admin-primary-button" type="submit" disabled={loading}>{loading ? 'Saving...' : 'Save changes'}</button></div>
+              <div className="admin-editor-heading"><div><span className="admin-kicker">Editable portfolio content</span><h2>{editorSections.find((section) => section.key === activeSection)?.label}</h2></div><span className="admin-status">Supabase sync</span></div>
+              <AdminContentForm activeSection={activeSection} content={content} onChange={setContent} />
+              <div className="admin-editor-footer"><span>Update the fields above, then save this section.</span><button className="admin-primary-button" type="submit" disabled={loading}>{loading ? 'Saving...' : 'Save changes'}</button></div>
               {message ? <div className="admin-success">{message}</div> : null}
               {error ? <div className="admin-error">{error}</div> : null}
             </form>
